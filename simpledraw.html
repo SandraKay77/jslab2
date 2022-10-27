@@ -2,27 +2,25 @@
 <html>
     <head>
         <title>Lab Two, simple Drawing</title>
-        <script>
-            function redraw(){
-                var canvas = document.getElementById("myCanvas");
-                var context = canvas.getContext("2d");
-
-                context.fillStyle = "Aqua";
-                context.fillRect(0, 0, canvas.width, canvas.height);
-                context.strokeRect(0, 0, canvas.width, canvas.height);
-            }
-
-            function resize() {
-                var canvas = document.getElementById("myCanvas");
-
-                canvas.width = window.innerWidth;
-                canvas.height = window.innerHeight;
-                redraw();
-            }
+        <script src="simpledraw.js">
         </script>
+        <script src="scene.js">
+        </script>
+        <script src="bubble.js">
+
+        </script>
+          <script>
+            var view = new View();
+
+            window.addEventListener("resize", function(){view.resize(); }, false);
+        </script>
+      
     </head>
-    <body style="margin:0; overflow:hidden;" onload="redraw();">
+    <body style="margin:0; overflow:hidden;" onload="view.resize();">
         <canvas id="myCanvas" width="600" height="400">
             </canvas>
     </body>
+    <footer>
+       
+    </footer>
 </html>
