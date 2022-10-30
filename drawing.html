@@ -2,22 +2,36 @@
 <html>
     <head>
         <title>Lab Two, simple Drawing</title>
-        <script src="simpledraw.js">
+        <style>
+            #firstDiv {
+                margin: auto;
+                height: fit-content;
+                border: 3px solid black;
+                font-size: large;
+                
+            }
+        </style>
+        <script src="pageview.js">
         </script>
+        
         <script src="scene.js">
-        </script>
-        <script src="bubble.js">
 
         </script>
+        
           <script>
             var view = new View();
+            var scene = new Scene();
 
             window.addEventListener("resize", function(){view.resize(); }, false);
+            
         </script>
       
     </head>
     <body style="margin:0; overflow:hidden;" onload="view.resize();">
         <canvas id="myCanvas" width="600" height="400">
+           
+
+
             </canvas>
     </body>
     <footer>
