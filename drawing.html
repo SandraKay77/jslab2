@@ -1,40 +1,32 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Lab Two, simple Drawing</title>
-        <style>
-            #firstDiv {
-                margin: auto;
-                height: fit-content;
-                border: 3px solid black;
-                font-size: large;
-                
-            }
-        </style>
-        <script src="pageview.js">
-        </script>
+
+<head>
+    <title>Lab Two, simple Drawing</title>
+
+    <script src="pageview.js">
+    </script>
+    
+
+    <script>
+        var view = new View();
+        window.addEventListener("resize", function () { view.resize(); }, false);
+
         
-        <script src="scene.js">
 
-        </script>
-        
-          <script>
-            var view = new View();
-            var scene = new Scene();
+    </script>
+    
 
-            window.addEventListener("resize", function(){view.resize(); }, false);
-            
-        </script>
-      
-    </head>
-    <body style="margin:0; overflow:hidden;" onload="view.resize();">
-        <canvas id="myCanvas" width="600" height="400">
-           
+</head>
+
+<body style="margin:0; overflow:hidden;" onload=view.resize();>
+
+    <canvas id="myCanvas" width="600" height="400">
 
 
-            </canvas>
-    </body>
-    <footer>
-       
-    </footer>
+
+    </canvas>
+</body>
+
+
 </html>

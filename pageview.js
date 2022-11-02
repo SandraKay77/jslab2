@@ -1,22 +1,37 @@
 function View() {
 
-    this.button = function(){
+    
+    
+
+    this.button = function () {
         canvas = document.getElementById("myCanvas");
         c = canvas.getContext("2d");
-        // canvas.innerHTML = "<input type=\"button\" id=\"ClickMe\" value=\"Click me!\ label=\"Click Me!\">";
-
         var button = document.createElement("BUTTON")
-        canvas.appendChild(button);
 
+        document.body.insertBefore(button, canvas);
+        button.innerHTML = "Click Me!";
         button.setAttribute("id", "clickMe", "value", "Click Me!", "label", "Click Me!");
-        button.onclick = console.log("hello!")
+        button.onclick = this.clicky
         button.style.cssText = `
-        margin: auto;
-        height: 100px;
-        width: 100px;
-        background-color: black;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 100%
+        
+        text-align: center
+        background-color: violet;
         font-size: large;
         `
+    }
+
+    this.clicky = function () {
+        
+        mBox.draw();
+
+
+
+        
+
     }
 
     this.redraw = function () {
@@ -25,7 +40,7 @@ function View() {
         context.fillStyle = "aqua";
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.strokeRect(0, 0, canvas.width, canvas.height);
-        
+
 
         // mScene.draw(canvas, canvas.width, canvas.height);
     }
@@ -37,7 +52,43 @@ function View() {
         canvas.height = window.innerHeight;
         this.redraw();
         this.button();
+        mBox = new Box();
+
+
 
     }
 }
 
+function Box() {
+    var Boxes = [];
+    canvas = document.getElementById("myCanvas");
+    c = canvas.getContext("2d");
+  
+    this.newBox = function () {
+    this.x = Math.round((10 * (150 * Math.random())));
+    this.y = Math.round(10 * (90 * Math.random()));
+    this.w = Math.round(2 * ((Math.random() * (50 - 10) + 10)));
+    this.h = Math.round(2 * ((Math.random() * (10) + 10)));
+    return [this.x, this.y, this.w, this.h];
+    }
+  
+   
+  
+    this.draw = function () {
+        for (var i = 0; i < Boxes.length; i++) {
+            Boxes[i].draw();
+            
+
+
+        }
+      let rect = this.newBox();
+      c.fillStyle = "red";
+      c.fillRect(rect[0], rect[1], rect[2], rect[3]);
+      
+      c.stroke();
+      
+      // c.fill
+    }
+  
+    
+  }
